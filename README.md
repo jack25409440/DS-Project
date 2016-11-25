@@ -195,7 +195,7 @@ The macro average F1 score is the unweighted average of the F1-score over all th
 
 ![](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image54.png)
 
-### Model without tfidf-features
+### Model without tf-idf features
 
 #### Training Datasource
 
@@ -209,7 +209,7 @@ TODO
 
 TODO
 
-### Model with tfidf-features
+### Model with tf-idf features
 
 TODO
 
