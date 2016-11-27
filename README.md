@@ -199,32 +199,51 @@ The macro average F1 score is the unweighted average of the F1-score over all th
 
 #### Training Datasource
 
-TODO
+The target distribution is shown as follows:
+
+![](pictures/target-distribution-train-v2.png)
 
 #### Testing Datasource
 
-TODO
+The target distribution is shown as follows:
+
+![](pictures/target-distribution-test-v2.png)
 
 #### Evluation
 
-TODO
+Since each review only has 12 sentiment features, the F1 score is **0.089**, The performance of this model is really bad. The most probable reason is that sentiment itself does not provide enough information to distinguish reviewers.
+
+The detailed performance is shown as follows:
+
+![](pictures/performance-v2.png)
 
 ### Model with tf-idf features
 
-TODO
-
 #### Training Datasource
 
-TODO
+The target distribution is shown as follows:
+
+![](pictures/target-distribution-train-tfidf.png)
 
 #### Testing Datasource
 
-TODO
+The target distribution is shown as follows:
+
+![](pictures/target-distribution-test-tfidf.png)
 
 #### Evluation
 
-TODO
+The performance is much better with tf-idf features. The F1 score is **0.411**.
+
+The detailed performance is shown as follows:
+
+![](pictures/performance-tfidf.png)
+
+## Future Improvements
+
+In the future, I could tune the variables of the model to inprove its performance. For example, I could change the number of tf-idf features. Also, I could add regularization parameters and/or modify the number of passes. I believe the performance could be improved by such tunning.
 
 ## Conclusion
 
-TODO
+From this project I realize that using NLP, authorship identification is possible. With just sentiment and tf-idf features, 
+authorship identification model could still achieve F1 score of 0.41. By furthur tunning this model, I believe the performance could be improved.
