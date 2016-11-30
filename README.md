@@ -65,9 +65,9 @@ The above command generates a file called `sentiments.json`
 
 #### Handling Sentiment Data in Redshift
 
-1. Setup a redshift cluster. Make sure you set up IAM accounts and permissions properly
+* Setup a redshift cluster. Make sure you set up IAM accounts and permissions properly
 
-2. Create a table named `sentiments` (see `sql-statements/create-sentiments-table.sql`)
+* Create a table named `sentiments` (see `sql-statements/create-sentiments-table.sql`)
 
 ```sql
 create table sentiments 
@@ -87,7 +87,7 @@ create table sentiments
 );
 ```
 
-4. Use `COPY` command to copy `sentiments.json` to Amazon Redshift (see `sql-statements/copy-sentiments.sql`)
+* Use `COPY` command to copy `sentiments.json` to Amazon Redshift (see `sql-statements/copy-sentiments.sql`)
 
 ```sql
 copy sentiments
@@ -96,7 +96,7 @@ credentials 'aws_access_key_id=<access_key>;aws_secret_access_key=<secret_access
 format as json 's3://amazon-review-data-emr/sentiments-json-path.json';
 ```
 
-4. Create a table named `filtered_sentiments_v2`, which has the same attributes as `sentiments` table (see `sql-statements/filtered-sentiments-table.sql`)
+* Create a table named `filtered_sentiments_v2`, which has the same attributes as `sentiments` table (see `sql-statements/filtered-sentiments-table.sql`)
 
 ```sql
 create table filtered_sentiments_v2
@@ -116,7 +116,7 @@ create table filtered_sentiments_v2
 );
 ```
 
-6. Filter the data in `sentiments` and insert the filtered data to `filtered_sentiments_v2` (see `sql-statements/filter-sentiments.sql`)
+* Filter the data in `sentiments` and insert the filtered data to `filtered_sentiments_v2` (see `sql-statements/filter-sentiments.sql`)
 
 ```sql
 insert into filtered_sentiments_v2
@@ -127,7 +127,7 @@ as NUM_OF_REVIEWS from sentiments group by reviewerId order by NUM_OF_REVIEWS de
 where NUM_OF_REVIEWS >= 200 and NUM_OF_REVIEWS <= 10000);
 ```
 
-7. Unload the filtered dataset to a csv file and add column names in the fisrt row (see `sql-statements/unload-sentiments.sql`)
+* Unload the filtered dataset to a csv file and add column names in the fisrt row (see `sql-statements/unload-sentiments.sql`)
 
 ```sql
 unload ('select * from filtered_sentiments_v2')
